@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsegeab Binchamo | Portfolio</title>
+  <style>
+    :root {
+      --primary: #4ea1f3;
+      --primary-dark: #1f78c1;
+      --bg-light: #ffffff;
+      --bg-dark: #0f172a;
+      --text-light: #e2e8f0;
+      --text-dark: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; background: var(--bg-dark); color: var(--text-light); scroll-behavior: smooth; }
+
+    /* Navigation */
+    nav { background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); position: fixed; top: 0; width: 100%; z-index: 100; padding: 15px 0; transition: background .3s; }
+    nav.scrolled { background: rgba(0,0,0,0.85); }
+    nav ul { display: flex; justify-content: center; gap: 30px; list-style: none; pointer-events: auto; }
+nav ul li { pointer-events: auto; }
+nav a { pointer-events: auto; }
+    nav a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color .3s; }
+    nav a:hover { color: var(--primary); }
+
+    /* Sections */
+    section { padding: 130px 20px; max-width: 900px; margin: auto; }
+    h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
+    h2 { margin-bottom: 20px; font-size: 2.5rem; color: var(--primary); }
+    p, li { font-size: 1.1rem; opacity: .95; }
+
+    /* Hero */
+    #home { text-align: center; padding-top: 180px; }
+    #home p { font-size: 1.3rem; opacity: .85; margin-bottom: 20px; }
+
+    /* Skills */
+    .skills ul { list-style: none; }
+    .skills li { background: #1e293b; margin: 8px 0; padding: 10px 15px; border-radius: 6px; border-left: 4px solid var(--primary); }
+
+    /* Project Cards */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: #1e293b; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); transition: transform .3s, box-shadow .3s; opacity: 0; transform: translateY(40px); }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.4); }
+    .card h3 { margin-bottom: 10px; color: var(--primary); }
+
+    /* Buttons */
+    .button { display: inline-block; background: var(--primary); padding: 12px 20px; border-radius: 6px; color: #fff; text-decoration: none; font-weight: 600; transition: background .3s; margin-top: 10px; }
+    .button:hover { background: var(--primary-dark); }
+
+    /* Footer */
+    footer { text-align: center; padding: 25px; color: var(--text-light); opacity: .7; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <h1>Tsegeab Binchamo</h1>
+    <p>Information Technology student focused on development, databases, and real-world problem solving.</p>
+    <a href="#projects" class="button">View My Projects</a>
+    <a href="resume.pdf" class="button" style="margin-left:10px;">Download Resume</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm an IT student at Kennesaw State University graduating in 2026. I'm passionate about building useful tools, understanding how technology works behind the scenes, and improving systems for efficiency. I enjoy working on cars, tinkering with hardware, and continuously improving my coding and analytical skills.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Programming:</strong> Java, Python, JavaScript, SQL</li>
+      <li><strong>Technologies:</strong> HTML, CSS, MySQL, Git, Linux</li>
+      <li><strong>Certifications:</strong> MTA Security Fundamentals, CompTIA PC Pro, CompTIA ITF+, Office Specialist</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="card reveal">
+        <h3>Student Car Guide</h3>
+        <p>Responsive website to help students choose affordable cars with a MySQL-backed input system to match student needs. Designed layout improvements based on feedback.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Course Picking Tool</h3>
+        <p>Java application automating math placement using rule-based logic, reducing manual sorting and improving placement accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:tsegeab0057@gmail.com" style="color: var(--primary);">tsegeab0057@gmail.com</a></p>
+    <a href="https://github.com" class="button">GitHub</a>
+    <a href="https://linkedin.com" class="button" style="margin-left:10px;">LinkedIn</a>
+  </section>
+
+  <footer>© 2025 Tsegeab Binchamo — Ready for Opportunities</footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      reveals.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) card.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>
